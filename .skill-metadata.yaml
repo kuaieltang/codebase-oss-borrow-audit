@@ -1,0 +1,68 @@
+examples:
+  - id: extract-pipeline-audit
+    title:
+      zh: 抽取链路对标开源借鉴审计
+      en: Audit an Extraction Pipeline Against OSS
+    description:
+      zh: 项目有自然语言抽取链路（人物/金额/时间/待办），想知道能借鉴哪些开源 IE/NLU 项目
+      en: For a project with an NL extraction pipeline (people/amount/time/todo), see what OSS IE/NLU work to borrow
+    prompt:
+      zh: |-
+        这是我目前在做的一个 App：{{代码库路径}}，它从用户的日常记录里抽取人物、支出金额、时间和待办，用来记账、设提醒、整理人际记录。
+        我已经看过 GLiNER / duckling / PaddleNLP UIE / Instructor / DSPy 这些开源项目。
+        请你实际读一下这条抽取链路的核心代码（不要只看 README），告诉我这个 App 能从这些开源项目借鉴什么，按 P0/P1/P2 分级、每条落到具体文件和行号，最后存成一份 MD 文档放到 D:\中转站。注意这是个离线 APK，别把重型库当运行时依赖。
+      en: |-
+        Here is the app I'm building: {{repo path}}. It extracts people, expenses, dates and todos from daily notes for bookkeeping, reminders and contact tracking.
+        I've looked at GLiNER / duckling / PaddleNLP UIE / Instructor / DSPy.
+        Please actually read the core extraction code (not just the README), tell me what this app can borrow from those OSS projects, tiered P0/P1/P2 with each item anchored to real file:line, and save it as an MD document at D:\中转站. It is an offline APK, so do not treat heavy libraries as runtime dependencies.
+
+  - id: llm-service-borrow
+    title:
+      zh: LLM 服务端对标框架借鉴
+      en: Borrow LLM Framework Ideas Into a Backend
+    description:
+      zh: 后端有「自然语言→JSON 意图」解析，想借鉴 Instructor/Outlines/DSPy 等结构化抽取框架
+      en: A backend parses NL into intent JSON and wants to borrow from Instructor/Outlines/DSPy structured-extraction frameworks
+    prompt:
+      zh: |-
+        我的项目 {{代码库路径}} 的链路是「自然语言 → 大模型解析意图 JSON → 服务端确定性增删改查」。
+        现在 lib/llm.js 里的字段定义和解析器经常漂移。
+        请读相关源码后，对标 Instructor / Outlines / BAML / DSPy，给我一份「借鉴思想、不引新依赖」的分级建议（P0/P1/P2，落到文件行号），并附一张实施顺序表，存成 MD 放到 D:\中转站。
+      en: |-
+        My project {{repo path}} turns natural language into an intent JSON, then the server does deterministic CRUD.
+        The field definitions and parser in lib/llm.js keep drifting.
+        After reading the source, benchmark against Instructor / Outlines / BAML / DSPy and give me a tiered borrow-the-idea-without-adding-dependencies list (P0/P1/P2 anchored to file:line) plus an implementation order table, saved as MD at D:\中转站.
+
+  - id: general-oss-benchmark
+    title:
+      zh: 任意模块对标开源借鉴清单
+      en: Benchmark Any Module Against OSS
+    description:
+      zh: 通用：把某个已实现的能力对标该领域的开源方案，产出可借鉴清单
+      en: Benchmark an already-implemented capability against the field's OSS options and produce a borrow list
+    prompt:
+      zh: |-
+        代码库 {{代码库路径}} 里的 {{某个模块/能力}}，我想对标 {{某开源方向/若干候选项目}}。
+        请你实际读完这条链路的关键源码，先说我哪里已经做对了，再给一份分级（P0/P1/P2）的可借鉴清单，每条落到具体文件行号，并说明这个项目的运行环境（是否离线/无服务器）对「要不要引入某个库」的限制，最后输出成 MD 存到 D:\中转站。
+      en: |-
+        In repo {{repo path}}, I want to benchmark {{a module/capability}} against {{an OSS direction / candidate projects}}.
+        Read the key source of that path, first tell me what I already do well, then give a tiered (P0/P1/P2) borrow list with each item anchored to real file:line, flag how this project's runtime (offline / server-less?) constrains "should I add this library", and output it as MD saved to D:\中转站.
+
+  - id: discover-benchmark-targets
+    title:
+      zh: 先找对标候选再审计
+      en: Find Benchmark Targets, Then Audit
+    description:
+      zh: 还没想好对标谁：先给出 2-3 个可比开源候选，用户确认后再正式审计
+      en: "No targets yet - surface 2-3 comparable OSS candidates for confirmation, then audit"
+    prompt:
+      zh: |-
+        代码库 {{代码库路径}} 里的 {{某个模块/能力}} 我想对标开源，但还没想好对标谁。
+        请先做少量检索，给我 {{领域方向}} 里 2-3 个可比的开源项目候选，每个说明「为什么可比、能补我哪块」。
+        我确认候选之后，你再去读我这边的源码，出那份 P0/P1/P2 分级、每条落到文件行号的借鉴清单，并附涉及文件清单和实施顺序表，存成 MD 到 D:\中转站。
+        运行环境约束：{{离线 / 无服务器 / 包体积上限，服务端可控就填「服务端可控」}}。
+      en: |-
+        In repo {{repo path}}, I want to benchmark {{a module/capability}} against OSS, but I have not picked the targets yet.
+        Do a little research first and give me 2-3 comparable candidates in {{domain}}, each noting why it is comparable and which gap it fills.
+        Only after I confirm should you read my source and produce the P0/P1/P2 borrow list anchored to real file:line, with a touched-file manifest and an implementation order table, saved as MD at D:\中转站.
+        Runtime constraints: {{offline / server-less / size cap, or "server-side is flexible"}}.
