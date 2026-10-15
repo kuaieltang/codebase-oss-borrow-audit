@@ -34,7 +34,7 @@
 
 ## 安装
 
-把整个目录复制到你的 Agent 技能目录即可：
+把整个目录复制到你的 Agent 技能目录即可。本仓库**双托管**在 GitHub 与 Gitee，国内用户建议用 Gitee 镜像，访问更快。
 
 | 环境 | 路径 |
 | --- | --- |
@@ -43,7 +43,11 @@
 | 其他支持 SKILL.md 的 Agent | 对应的 skills 目录 |
 
 ```bash
+# GitHub（国际）
 git clone https://github.com/kuaieltang/codebase-oss-borrow-audit.git ~/.qwenworkcn/skills/codebase-oss-borrow-audit
+
+# Gitee 镜像（国内访问更快）
+git clone https://gitee.com/laotangshiye/codebase-oss-borrow-audit.git ~/.qwenworkcn/skills/codebase-oss-borrow-audit
 ```
 
 ## 用法
