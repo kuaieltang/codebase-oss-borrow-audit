@@ -100,3 +100,7 @@ python scripts/probe_repo.py /path/to/repo --top 20 --tree-depth 3
 ## 许可
 
 MIT
+
+## 姊妹仓库
+
+- [multi-agent-bridge](https://github.com/kuaieltang/multi-agent-bridge) — 用 DeepSeek Harness 调度本机 Codex / WorkBuddy / 千问办公 三个 Agent 实际干活的协作桥
